@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+}
+
+group 'org.electrumj'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.11
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+javadoc.options.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/libs-release" }
+}
+
+dependencies {
+    ext {
+        logbackVersion = '1.1.11'
+        lombokVersion = '1.18.2'
+    }
+
+    testCompile 'junit:junit:4.12'
+
+    compile 'org.bitcoinj:bitcoinj-core:0.15.8'
+
+    compile 'com.github.briandilley.jsonrpc4j:jsonrpc4j:1.5.3'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.8.5'
+
+    compile "org.slf4j:slf4j-api:1.7.22"
+    compile "ch.qos.logback:logback-core:$logbackVersion"
+    compile "ch.qos.logback:logback-classic:$logbackVersion"
+
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+}
