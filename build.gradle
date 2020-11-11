@@ -21,16 +21,17 @@ dependencies {
         lombokVersion = '1.18.2'
     }
 
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'com.google.guava:guava:28.2-android'
 
-    compile 'org.bitcoinj:bitcoinj-core:0.15.8'
+    implementation 'org.bitcoinj:bitcoinj-core:0.15.8'
 
-    compile 'com.github.briandilley.jsonrpc4j:jsonrpc4j:1.5.3'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.8.5'
+    implementation 'com.github.briandilley.jsonrpc4j:jsonrpc4j:1.5.3'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.8.5'
 
-    compile "org.slf4j:slf4j-api:1.7.22"
-    compile "ch.qos.logback:logback-core:$logbackVersion"
-    compile "ch.qos.logback:logback-classic:$logbackVersion"
+    implementation "org.slf4j:slf4j-api:1.7.22"
+    implementation "ch.qos.logback:logback-core:$logbackVersion"
+    implementation "ch.qos.logback:logback-classic:$logbackVersion"
 
     compileOnly "org.projectlombok:lombok:$lombokVersion"
     annotationProcessor "org.projectlombok:lombok:$lombokVersion"
