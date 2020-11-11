@@ -28,8 +28,10 @@ public class ElectrumClientTest {
     public static void setUp() throws Throwable {
         bitcoinjNetowrkParameters = MainNetParams.get();
         client = new ElectrumClient(ElectrumServers.CORE_1209K_URL);
-//        To test using a local ElectrumX connected to a local bitcoid running in regtest, uncomment
-//        the following 2 lines and uncomment the previous 2 lines.
+//        To test using a local ElectrumX:
+//        - Start bitcoind running in regtest using the datadir provided in src/main/resources/bitcoin-regtest.zip
+//        - Start ElectrumX connected to the local bitcoind
+//        - Uncomment the following 2 lines and uncomment the previous 2 lines of code.
 //        bitcoinjNetowrkParameters = RegTestParams.get();
 //        server = new ElectrumClient(ElectrumServers.LOCALHOST_URL);
         client.openConnection();
