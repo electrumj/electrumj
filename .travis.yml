@@ -1,0 +1,4 @@
+# configuration for https://travis-ci.org/electrumj/electrumj
+language: java
+jdk:
+    - openjdk11
