@@ -1,8 +1,8 @@
 # electrumj
 
+[![Build Status](https://travis-ci.com/electrumj/electrumj.svg?branch=main)](https://travis-ci.org/electrumj/electrumj)
+
 Java client for the electrum protocol.
-
-
 
 Sample usage:
 
