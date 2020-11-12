@@ -27,7 +27,7 @@ public class ElectrumClientTest {
     @BeforeClass
     public static void setUp() throws Throwable {
         bitcoinjNetowrkParameters = MainNetParams.get();
-        client = new ElectrumClient(ElectrumServers.CORE_1209K_URL);
+        client = new ElectrumClient(ElectrumServers.ERBIUM_URL);
 //        To test using a local ElectrumX:
 //        - Start bitcoind running in regtest using the datadir provided in src/main/resources/bitcoin-regtest.zip
 //        - Start ElectrumX connected to the local bitcoind
