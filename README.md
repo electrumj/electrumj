@@ -34,7 +34,7 @@ repositories {
 
 dependencies {
     ...
-    implementation 'com.github.electrumj:electrumj:v0.1'
+    implementation 'com.github.electrumj:electrumj:v0.1.1'
 }
 ```
 
