@@ -8,10 +8,10 @@ Sample usage:
 
 ```
     ElectrumClient client = new ElectrumClient("electrumx-core.1209k.com", 50002);
-    client.open();
+    client.openConnection();
     String scripthash = Util.scripthash("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa");
     BlockchainScripthashGetBalanceResponse response = client.blockchainScripthashGetBalance(scripthash);
-    client.close();
+    client.closeConnection();
     System.out.println("Confirmed: " + response.getConfirmed());
     System.out.println("Unconfirmed: " + response.getUnconfirmed());
 ```
