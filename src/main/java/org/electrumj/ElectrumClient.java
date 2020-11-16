@@ -8,12 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.net.ssl.*;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.*;
 import java.lang.reflect.Type;
 import java.nio.channels.SocketChannel;
+import java.security.GeneralSecurityException;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.X509Certificate;
@@ -90,10 +88,12 @@ public class ElectrumClient {
     // Section connection
 
     /**
-     * Opens the connection to the electrum server.
-     * @throws Throwable
+     * Opens the connection to the electrum server.*
+     * @throws KeyManagementException
+     * @throws NoSuchAlgorithmException
+     * @throws IOException
      */
-    public void openConnection() throws Throwable {
+    public void openConnection() throws GeneralSecurityException, IOException {
         assert !connectionOpened;
         SSLSocketFactory factory = createTrustAllCertsSocketFactory();
         socket = (SSLSocket)factory.createSocket(this.getServerHostnameOrIp(), this.getServerPort());
@@ -106,9 +106,9 @@ public class ElectrumClient {
 
     /**
      * Closes the connection to the electrum server.
-     * @throws Throwable
+     * @throws IOException
      */
-    public void closeConnection() throws Throwable {
+    public void closeConnection() throws IOException {
         assert connectionOpened;
         socketInputStream.close();
         //socket.getOutputStream().close();
@@ -180,9 +180,8 @@ public class ElectrumClient {
     /**
      * Starts a new thread that reads the socket input stream and invokes the associated listener when
      * the server sends notifications.
-     * @throws Throwable
      */
-    public void listenNotifications() throws Throwable {
+    public void listenNotifications() {
         new Thread() {
             @Override
             public void run() {
