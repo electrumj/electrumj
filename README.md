@@ -4,7 +4,7 @@
 
 Java client for the electrum protocol.
 
-Sample usage:
+### Sample usage
 
 ```
     ElectrumClient client = new ElectrumClient("electrumx-core.1209k.com", 50002);
@@ -23,10 +23,22 @@ Confirmed: 1834354006
 Unconfirmed: 4348
 ```
 
-
 See `ElectrumClientTest` for more examples.
 
-See:<br/>
+Declaring electrumj as a gradle dependency:
+```
+repositories {
+    ...
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    ...
+    implementation 'com.github.electrumj:electrumj:v0.1'
+}
+```
+
+### Useful resouces
 [Protocol documentation](https://electrumx-spesmilo.readthedocs.io/en/latest/protocol-methods.html)
 <br/>
 
