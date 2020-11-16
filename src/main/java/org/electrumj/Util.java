@@ -3,6 +3,7 @@ package org.electrumj;
 import org.bitcoinj.core.Address;
 import org.bitcoinj.core.NetworkParameters;
 import org.bitcoinj.core.Sha256Hash;
+import org.bitcoinj.params.MainNetParams;
 import org.bitcoinj.script.Script;
 import org.bitcoinj.script.ScriptBuilder;
 
@@ -14,6 +15,16 @@ import java.util.List;
  * Random utility methods.
  */
 public class Util {
+
+    /**
+     * Obtains the electrum's scriptshash given a mainnet address.
+     * See <a href="https://electrumx-spesmilo.readthedocs.io/en/latest/protocol-basics.html#script-hashes"Electrum documentation on script hash</a>.
+     * @param address The address
+     * @return The scripthash associated with the supplied address
+     */
+    public static String scripthash(String address) {
+        return scripthash(MainNetParams.get(), address);
+    }
 
     /**
      * Obtains the electrum's scriptshash given an address.
