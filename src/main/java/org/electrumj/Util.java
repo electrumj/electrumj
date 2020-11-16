@@ -23,7 +23,7 @@ public class Util {
      * @return The scripthash associated with the supplied address
      * @throws Throwable
      */
-    public static String scripthash(NetworkParameters bitcoinjNetowrkParameters, String address) throws Throwable {
+    public static String scripthash(NetworkParameters bitcoinjNetowrkParameters, String address) {
         Address addressBitcoinj = Address.fromString(bitcoinjNetowrkParameters, address);
         Script script = ScriptBuilder.createOutputScript(addressBitcoinj);
         byte[] scriptArray = script.getProgram();
