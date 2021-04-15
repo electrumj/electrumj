@@ -1,5 +1,6 @@
 package org.electrumj;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.googlecode.jsonrpc4j.JsonRpcClient;
 import org.electrumj.dto.*;
@@ -190,6 +191,7 @@ public class ElectrumClient {
                     try {
                         String notificationJsonString = in.readLine();
                         ObjectMapper mapper = new ObjectMapper();
+                        mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
                         Map notificationMap = mapper.readValue(notificationJsonString, Map.class);
                         if (notificationMap.get("method").equals("blockchain.headers.subscribe")) {
                             Map blockchainHeadersSubscribeResponeMap = (Map) ((List)notificationMap.get("params")).get(0);
