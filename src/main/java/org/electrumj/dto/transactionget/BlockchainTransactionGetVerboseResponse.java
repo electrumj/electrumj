@@ -30,5 +30,7 @@ public class BlockchainTransactionGetVerboseResponse {
     private List<TxInput> inputs;
     @JsonProperty("vout")
     private List<TxOutput> outputs;
+    @JsonProperty("txinwitness")
+    private List<String> txinwitness;
 
 }
